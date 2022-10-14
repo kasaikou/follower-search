@@ -4,6 +4,16 @@
       "url": "https://github.com/StreamWest-1629/refdoc",
       "title": "GitHub - StreamWest-1629/refdoc: The CLI tool for generate reference documentation",
       "foundAt": "2022-09-04T10:27:25.955363985Z"
+    },
+    "https://miyauchi.dev/ja/posts/tweet-typescript/": {
+      "url": "https://miyauchi.dev/ja/posts/tweet-typescript/",
+      "title": "TypeScriptで型安全にツイートする | miyauci.me",
+      "foundAt": "2022-10-14T23:17:59.811160053Z"
+    },
+    "https://zenn.dev/januswel/articles/402774d76424e71ac906": {
+      "url": "https://zenn.dev/januswel/articles/402774d76424e71ac906",
+      "title": "ESLint 設定を作成する技術",
+      "foundAt": "2022-10-14T23:18:00.259363942Z"
     }
   }
 }
