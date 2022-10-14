@@ -14,7 +14,7 @@ async function searchFromFollowers(query: string, followedUserId: string, num_re
         while (true) {
             const followers: UserV2TimelineResult = await twClient.v2.followers(followedUser.data.id, {
                 "user.fields": "id,username",
-                "max_results": 100,
+                "max_results": 1000,
                 "pagination_token": pagenationToken,
             });
             for (const follower of followers.data) {
