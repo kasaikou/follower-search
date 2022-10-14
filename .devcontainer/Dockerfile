@@ -1,4 +1,4 @@
-FROM debian:bullseye
+FROM ubuntu:20.04
 
 LABEL maintainer="Kasai Kou"
 
@@ -32,6 +32,7 @@ RUN \
     zip \
     unzip \
     wget \
+    npm \
     sudo && \
     #
     # Install docker
@@ -40,25 +41,9 @@ RUN \
     apt-get update && \
     apt-get install -y docker-ce docker-ce-cli containerd.io && \
     #
-    #
-    wget https://go.dev/dl/go${golang_version}.linux-$(dpkg --print-architecture).tar.gz && \
-    tar -C /usr/local -xzf go${golang_version}.linux-$(dpkg --print-architecture).tar.gz && \
-    #
     # Create non-root user: https://aka.ms/vscode-remote/containers/non-root-user
     groupadd --gid ${usergid} ${username} && \
     useradd --uid ${useruid} --gid ${usergid} -m ${username} && \
     echo ${username} ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/${username} && \
     chmod 0440 /etc/sudoers.d/${username} && \
     chown -R ${username} /opt
-
-USER ${username}
-RUN go install golang.org/x/tools/gopls@latest && \
-    go install golang.org/x/lint/golint@latest && \
-    go install github.com/go-delve/delve/cmd/dlv@master && \
-    go install github.com/haya14busa/goplay/cmd/goplay@v1.0.0 && \
-    go install github.com/fatih/gomodifytags@v1.16.0 && \
-    go install github.com/josharian/impl@latest && \
-    go install github.com/cweill/gotests/gotests@latest && \
-    go install github.com/ramya-rao-a/go-outline@latest && \
-    go install golang.org/x/tools/cmd/godoc@latest && \
-    go install honnef.co/go/tools/cmd/staticcheck@latest
