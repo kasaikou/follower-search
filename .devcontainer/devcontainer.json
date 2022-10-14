@@ -32,6 +32,9 @@
 	"remoteUser": "node",
 	"features": {
 		"docker-from-docker": "20.10",
-		"git": "os-provided"
+		"git": "os-provided",
+		"ghcr.io/devcontainers/features/aws-cli:1": {
+			"version": "latest"
+		}
 	}
 }
