@@ -3,3 +3,7 @@ categories:
   - name: Terraform
     refs:
       - https://github.com/StreamWest-1629/refdoc
+  - name: Typescript
+    refs:
+      - https://zenn.dev/januswel/articles/402774d76424e71ac906
+      - https://miyauchi.dev/ja/posts/tweet-typescript/
