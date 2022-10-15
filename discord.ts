@@ -31,8 +31,13 @@ async function sendMessage(msg: string) {
     }
 }
 
+function destroy() {
+    client.destroy();
+}
+
 export {
-    sendMessage
+    sendMessage,
+    destroy
 };
 
 
