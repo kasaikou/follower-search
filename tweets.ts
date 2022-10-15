@@ -1,7 +1,12 @@
 import { TwitterApi, TweetV2, UserV2TimelineResult, TwitterApiRequestError, TweetSearchRecentV2Paginator } from "twitter-api-v2";
+import { env } from "process"
+import { OperationCanceledException } from "typescript";
 
-const twitterApiBearer = "";
-const twClient = new TwitterApi(twitterApiBearer);
+if (env.TWITTER_BEARER == undefined) {
+    console.log("TWITTER_BEARER variable is required, but it was not set");
+    throw new OperationCanceledException();
+}
+const twClient = new TwitterApi(env.TWITTER_BEARER);
 
 async function searchFromFollowers(query: string, followedUserId: string, num_results: number) {
 
