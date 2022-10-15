@@ -1,0 +1,24 @@
+name: Search Twitter from follower and send results
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 15 * * 0"
+jobs:
+  run:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Nodejs
+        uses: actions/setup-node@v3
+        with:
+          node-version: 14.x
+          cache: npm
+      - name: Install npm packages
+        run: npm ci
+      - name: Execute
+        run: npm start
+        env:
+          TWITTER_BEARER: ${{ secrets.TWITTER_BEARER }}
+          DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
+          DISCORD_MASTER_ID: ${{ secrets.DISCORD_MASTER_ID }}
