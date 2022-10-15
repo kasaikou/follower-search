@@ -22,3 +22,6 @@ jobs:
           TWITTER_BEARER: ${{ secrets.TWITTER_BEARER }}
           DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
           DISCORD_MASTER_ID: ${{ secrets.DISCORD_MASTER_ID }}
+          SEARCH_QUERY: '("かさいくん" OR "かさいさん" OR "かさいちゃん") -from:streamwest1629'
+          SEARCH_FOLLOWED_USER: streamwest1629
+          
